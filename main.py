@@ -2,6 +2,8 @@ import csv
 import json
 import requests
 from bs4 import BeautifulSoup
+from lxml import etree
+from io import StringIO
 
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
 NUMBER_OF_PAGES = 1
@@ -23,17 +25,23 @@ def process_link(link):
     response = requests.get(link)
     soup = BeautifulSoup(response.content, "html.parser")
 
-    date_data = soup.find_all('li', class_='news-section-bar')
+    date_data = soup.find_all('ul', class_='post-meta hidden-xs')
+    date_data = BeautifulSoup(str(date_data), "html.parser").find_all('li', class_='news-section-bar')
     dates = [item.text.replace("\n", "").replace("'", "") for item in date_data if 'qb-clock' in str(item)]
     place = [item.text for item in date_data if 'fa-map-marker' in str(item)][0] if date_data else ""
 
-    htmlText = response.content.decode('utf-8').replace('\n', '')
+    htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';','')
+    parser = etree.HTMLParser()
+    tree = etree.parse(StringIO(htmlText), parser)
+    for s in tree.xpath('//script'):
+        s.getparent().remove(s)
+    htmlText = str(etree.tostring(tree.getroot(), pretty_print=True))
     article_soup = BeautifulSoup(htmlText, "html.parser")
     text_div = article_soup.find('div', class_='text')
     if text_div:
         for tag in text_div(['style', 'script']):
             tag.decompose()
-        articleText = ' '.join(text_div.stripped_strings)
+        articleText = ' '.join(text_div.stripped_strings).replace(';','')
     else:
         articleText = ""
 
@@ -44,7 +52,8 @@ def save_to_csv(data, filepath):
     with open(filepath, 'w', newline='', encoding='utf-8') as out:
         csv_out = csv.writer(out, delimiter=';')
         csv_out.writerow(('Publish', 'Update', 'Place', 'HTML_TEXT', 'RAW_TEXT'))
-        csv_out.writerows(data)
+        for row in data:
+            csv_out.writerow(row)
 
 
 if __name__ == '__main__':
@@ -53,6 +62,7 @@ if __name__ == '__main__':
         json_data = get_json_data(f"{SITE_URL}{index}")
         urls = extract_urls(json_data)
         for link in urls:
+            print(link)
             link_data = process_link(link)
             all_data.append(link_data)
-    save_to_csv(all_data[0], 'output.csv')
+    save_to_csv(all_data, 'C:/Users/kubog/OneDrive/Dokumenty/csvNLP/output.csv')
