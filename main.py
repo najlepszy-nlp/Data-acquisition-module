@@ -4,9 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 from lxml import etree
 from io import StringIO
+import CitiesListProcessing as clp
+
 
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
-NUMBER_OF_PAGES = 1
+NUMBER_OF_PAGES = 30
 
 
 def get_json_data(url):
@@ -20,16 +22,31 @@ def extract_urls(json_data):
     urls = set(link.get('href').replace("\\", "") for link in links if link.get('href'))
     return urls
 
+def check_link_for_city(link,citiesDict):
+    noPrefixLink = link.replace("https://www.unb.com.bd/category/Bangladesh/","")
+    index = noPrefixLink.find("/")
+    readyToParseLink = noPrefixLink[:index]
+    wordsList = readyToParseLink.split("-")
+    for word in wordsList:
+        if word.lower() in citiesDict.keys():
+            return citiesDict[word].lower()
+    return ""
 
-def process_link(link):
+
+def process_link(link,citiesDict):
     response = requests.get(link)
     soup = BeautifulSoup(response.content, "html.parser")
 
     date_data = soup.find_all('ul', class_='post-meta hidden-xs')
     date_data = BeautifulSoup(str(date_data), "html.parser").find_all('li', class_='news-section-bar')
     dates = [item.text.replace("\n", "").replace("'", "") for item in date_data if 'qb-clock' in str(item)]
-    place = [item.text for item in date_data if 'fa-map-marker' in str(item)][0] if date_data else ""
-
+    if [item.text for item in date_data if 'fa-map-marker' in str(item)]:
+        place = [item.text for item in date_data if 'fa-map-marker' in str(item)][0] if date_data else ""
+    else:
+        place = check_link_for_city(link,citiesDict)
+        if place == "":
+            print(link)
+            place = "Sosnowiec"
     htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';','')
     parser = etree.HTMLParser()
     tree = etree.parse(StringIO(htmlText), parser)
@@ -58,11 +75,13 @@ def save_to_csv(data, filepath):
 
 if __name__ == '__main__':
     all_data = []
+    citiesDict = clp.read_places_from_file_to_dict("./worldcities.csv")
     for index in range(1, NUMBER_OF_PAGES + 1):
         json_data = get_json_data(f"{SITE_URL}{index}")
         urls = extract_urls(json_data)
         for link in urls:
-            print(link)
-            link_data = process_link(link)
+            if not "Bangladesh" in link:
+                continue
+            link_data = process_link(link,citiesDict)
             all_data.append(link_data)
-    save_to_csv(all_data, 'C:/Users/kubog/OneDrive/Dokumenty/csvNLP/output.csv')
+    save_to_csv(all_data, './abc.txt')
