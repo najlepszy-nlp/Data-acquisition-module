@@ -4,9 +4,9 @@ from collections import defaultdict
 def read_places_from_file_to_dict(path):
     frame = pd.read_csv(path)
     frame = frame.loc[frame['country'] == "Bangladesh"]
-    frame = frame[['city', 'admin_name']]
+    frame = frame[['city_ascii', 'admin_name']]
     city_admin_dict = defaultdict(list)
-    for city, admin_name in zip(frame['city'], frame['admin_name']):
+    for city, admin_name in zip(frame['city_ascii'], frame['admin_name']):
         city_admin_dict[city.lower()].append(admin_name)
         if not city.endswith('s'):
             plural_city = city + 's'
