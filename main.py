@@ -28,8 +28,16 @@ def check_link_for_city(link,citiesDict):
     readyToParseLink = noPrefixLink[:index]
     wordsList = readyToParseLink.split("-")
     for word in wordsList:
+
+        #check if word is in districts to cities dict
         if word.lower() in citiesDict.keys():
             return citiesDict[word].lower()
+
+        #check if word is in ciries dict
+        if word.lower() in cities:
+            return word
+
+    #if above steeps fail return empty string
     return ""
 
 
@@ -75,7 +83,10 @@ def save_to_csv(data, filepath):
 
 if __name__ == '__main__':
     all_data = []
-    citiesDict = clp.read_places_from_file_to_dict("./worldcities.csv")
+    temp = clp.read_places_from_file_to_dict("./worldcities.csv")
+    citiesDict = temp[0]
+    cities = temp[1].tolist()
+    cities = list(map(lambda city: city.lower(), cities))
     for index in range(1, NUMBER_OF_PAGES + 1):
         json_data = get_json_data(f"{SITE_URL}{index}")
         urls = extract_urls(json_data)
