@@ -40,6 +40,12 @@ def check_link_for_city(link,citiesDict):
     #if above steeps fail return empty string
     return ""
 
+def check_text_for_city(articleText:str):
+    cityName = articleText.split(",")[0]
+    if cityName.lower() in cities:
+        return cityName
+    return ""
+
 
 def process_link(link,citiesDict):
     response = requests.get(link)
@@ -48,13 +54,6 @@ def process_link(link,citiesDict):
     date_data = soup.find_all('ul', class_='post-meta hidden-xs')
     date_data = BeautifulSoup(str(date_data), "html.parser").find_all('li', class_='news-section-bar')
     dates = [item.text.replace("\n", "").replace("'", "") for item in date_data if 'qb-clock' in str(item)]
-    if [item.text for item in date_data if 'fa-map-marker' in str(item)]:
-        place = [item.text for item in date_data if 'fa-map-marker' in str(item)][0] if date_data else ""
-    else:
-        place = check_link_for_city(link,citiesDict)
-        if place == "":
-            print(link)
-            place = "Sosnowiec"
     htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';','')
     parser = etree.HTMLParser()
     tree = etree.parse(StringIO(htmlText), parser)
@@ -69,6 +68,15 @@ def process_link(link,citiesDict):
         articleText = ' '.join(text_div.stripped_strings).replace(';','')
     else:
         articleText = ""
+    if [item.text for item in date_data if 'fa-map-marker' in str(item)]:
+        place = [item.text for item in date_data if 'fa-map-marker' in str(item)][0] if date_data else ""
+    else:
+        place = check_link_for_city(link,citiesDict)
+        if place == "":
+            place = check_text_for_city(articleText)            
+        if place == "":
+            print(link)
+            place = "Sosnowiec"
 
     return (dates[0], dates[1] if len(dates) > 1 else "", place, htmlText, articleText)
 
