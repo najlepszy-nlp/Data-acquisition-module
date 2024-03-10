@@ -1,0 +1,743 @@
+<table class="wikitable sortable jquery-tablesorter" style="text-align:left">
+<thead><tr>
+<th style="text-align:center" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">District
+</th>
+<th style="text-align:center" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Division
+</th>
+<th style="text-align:center" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Established
+</th>
+<th style="text-align:center" data-sort-type="number" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Area (km<sup>2</sup>)<sup id="cite_ref-:0_27-0" class="reference"><a href="#cite_note-:0-27">[27]</a></sup>
+</th>
+<th style="text-align:center" data-sort-type="number" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Population (2022)<sup id="cite_ref-2022census-prelim_28-0" class="reference"><a href="#cite_note-2022census-prelim-28">[28]</a></sup>
+</th>
+<th style="text-align:center" data-sort-type="number" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Density (/km<sup>2</sup>)<sup id="cite_ref-2022census-prelim_28-1" class="reference"><a href="#cite_note-2022census-prelim-28">[28]</a></sup>
+</th></tr></thead><tbody>
+<tr>
+<td><a href="/wiki/Barguna_District" title="Barguna District">Barguna</a>
+</td>
+<td rowspan="6"><a href="/wiki/Barisal_Division" title="Barisal Division">Barisal</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,831
+</td>
+<td style="text-align:right;">1,010,530
+</td>
+<td style="text-align:right;">552
+</td></tr>
+<tr>
+<td><a href="/wiki/Barisal_District" title="Barisal District">Barishal</a>
+</td>
+<td>1797
+</td>
+<td style="text-align:right;">2,785
+</td>
+<td style="text-align:right;">2,570,450
+</td>
+<td style="text-align:right;">923
+</td></tr>
+<tr>
+<td><a href="/wiki/Bhola_District" title="Bhola District">Bhola</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">3,403
+</td>
+<td style="text-align:right;">1,932,514
+</td>
+<td style="text-align:right;">568
+</td></tr>
+<tr>
+<td><a href="/wiki/Jhalokati_District" title="Jhalokati District">Jhalokati</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">707
+</td>
+<td style="text-align:right;">661,161
+</td>
+<td style="text-align:right;">935
+</td></tr>
+<tr>
+<td><a href="/wiki/Patuakhali_District" title="Patuakhali District">Patuakhali</a>
+</td>
+<td>1969
+</td>
+<td style="text-align:right;">3,221
+</td>
+<td style="text-align:right;">1,727,254
+</td>
+<td style="text-align:right;">536
+</td></tr>
+<tr>
+<td><a href="/wiki/Pirojpur_District" title="Pirojpur District">Pirojpur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,278
+</td>
+<td style="text-align:right;">1,198,193
+</td>
+<td style="text-align:right;">938
+</td></tr>
+<tr>
+<td><a href="/wiki/Bandarban_District" title="Bandarban District">Bandarban</a>
+</td>
+<td rowspan="11"><a href="/wiki/Chittagong_Division" title="Chittagong Division">Chittagong</a>
+</td>
+<td>1981
+</td>
+<td style="text-align:right;">4,479
+</td>
+<td style="text-align:right;">481,109
+</td>
+<td style="text-align:right;">107
+</td></tr>
+<tr>
+<td><a href="/wiki/Brahmanbaria_District" title="Brahmanbaria District">Brahmanbaria</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,881
+</td>
+<td style="text-align:right;">3,306,559
+</td>
+<td style="text-align:right;">1,758
+</td></tr>
+<tr>
+<td><a href="/wiki/Chandpur_District" title="Chandpur District">Chandpur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,645
+</td>
+<td style="text-align:right;">2,635,748
+</td>
+<td style="text-align:right;">1,602
+</td></tr>
+<tr>
+<td><a href="/wiki/Chittagong_District" title="Chittagong District">Chittagong</a>
+</td>
+<td>1666
+</td>
+<td style="text-align:right;">5,283
+</td>
+<td style="text-align:right;">9,169,464
+</td>
+<td style="text-align:right;">1,736
+</td></tr>
+<tr>
+<td><a href="/wiki/Comilla_District" title="Comilla District">Comilla</a>
+</td>
+<td>1790
+</td>
+<td style="text-align:right;">3,146
+</td>
+<td style="text-align:right;">6,212,216
+</td>
+<td style="text-align:right;">1,974
+</td></tr>
+<tr>
+<td><a href="/wiki/Cox%27s_Bazar_District" title="Cox's Bazar District">Cox's Bazar</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,492
+</td>
+<td style="text-align:right;">2,823,265
+</td>
+<td style="text-align:right;">1,133
+</td></tr>
+<tr>
+<td><a href="/wiki/Feni_District" title="Feni District">Feni</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">990
+</td>
+<td style="text-align:right;">1,648,896
+</td>
+<td style="text-align:right;">1,665
+</td></tr>
+<tr>
+<td><a href="/wiki/Khagrachhari_District" title="Khagrachhari District">Khagrachhari</a>
+</td>
+<td>1983
+</td>
+<td style="text-align:right;">2,749
+</td>
+<td style="text-align:right;">714,119
+</td>
+<td style="text-align:right;">260
+</td></tr>
+<tr>
+<td><a href="/wiki/Lakshmipur_District" title="Lakshmipur District">Lakshmipur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,440
+</td>
+<td style="text-align:right;">1,938,111
+</td>
+<td style="text-align:right;">1,346
+</td></tr>
+<tr>
+<td><a href="/wiki/Noakhali_District" title="Noakhali District">Noakhali</a>
+</td>
+<td>1821
+</td>
+<td style="text-align:right;">3,686
+</td>
+<td style="text-align:right;">3,625,252
+</td>
+<td style="text-align:right;">984
+</td></tr>
+<tr>
+<td><a href="/wiki/Rangamati_Hill_District" title="Rangamati Hill District">Rangamati</a>
+</td>
+<td>1983
+</td>
+<td style="text-align:right;">6,116
+</td>
+<td style="text-align:right;">647,587
+</td>
+<td style="text-align:right;">106
+</td></tr>
+<tr>
+<td><a href="/wiki/Dhaka_District" title="Dhaka District">Dhaka</a>
+</td>
+<td rowspan="13"><a href="/wiki/Dhaka_Division" title="Dhaka Division">Dhaka</a>
+</td>
+<td>1772
+</td>
+<td style="text-align:right;">1,464
+</td>
+<td style="text-align:right;">14,734,025
+</td>
+<td style="text-align:right;">10,067
+</td></tr>
+<tr>
+<td><a href="/wiki/Faridpur_District" title="Faridpur District">Faridpur</a>
+</td>
+<td>1815
+</td>
+<td style="text-align:right;">2,053
+</td>
+<td style="text-align:right;">2,162,876
+</td>
+<td style="text-align:right;">1,054
+</td></tr>
+<tr>
+<td><a href="/wiki/Gazipur_District" title="Gazipur District">Gazipur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,806
+</td>
+<td style="text-align:right;">5,263,474
+</td>
+<td style="text-align:right;">2,914
+</td></tr>
+<tr>
+<td><a href="/wiki/Gopalganj_District,_Bangladesh" title="Gopalganj District, Bangladesh">Gopalganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,469
+</td>
+<td style="text-align:right;">1,295,053
+</td>
+<td style="text-align:right;">882
+</td></tr>
+<tr>
+<td><a href="/wiki/Kishoreganj_District" title="Kishoreganj District">Kishoreganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,689
+</td>
+<td style="text-align:right;">3,267,630
+</td>
+<td style="text-align:right;">1,215
+</td></tr>
+<tr>
+<td><a href="/wiki/Madaripur_District" title="Madaripur District">Madaripur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,125
+</td>
+<td style="text-align:right;">1,293,027
+</td>
+<td style="text-align:right;">1,149
+</td></tr>
+<tr>
+<td><a href="/wiki/Manikganj_District" title="Manikganj District">Manikganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,384
+</td>
+<td style="text-align:right;">1,558,024
+</td>
+<td style="text-align:right;">1,126
+</td></tr>
+<tr>
+<td><a href="/wiki/Munshiganj_District" title="Munshiganj District">Munshiganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,004
+</td>
+<td style="text-align:right;">1,625,418
+</td>
+<td style="text-align:right;">1,618
+</td></tr>
+<tr>
+<td><a href="/wiki/Narayanganj_District" title="Narayanganj District">Narayanganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">684
+</td>
+<td style="text-align:right;">3,909,138
+</td>
+<td style="text-align:right;">5,712
+</td></tr>
+<tr>
+<td><a href="/wiki/Narsingdi_District" title="Narsingdi District">Narsingdi</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,150
+</td>
+<td style="text-align:right;">2,584,452
+</td>
+<td style="text-align:right;">2,247
+</td></tr>
+<tr>
+<td><a href="/wiki/Rajbari_District" title="Rajbari District">Rajbari</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,092
+</td>
+<td style="text-align:right;">1,189,821
+</td>
+<td style="text-align:right;">1,089
+</td></tr>
+<tr>
+<td><a href="/wiki/Shariatpur_District" title="Shariatpur District">Shariatpur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,174
+</td>
+<td style="text-align:right;">1,294,561
+</td>
+<td style="text-align:right;">1,103
+</td></tr>
+<tr>
+<td><a href="/wiki/Tangail_District" title="Tangail District">Tangail</a>
+</td>
+<td>1969
+</td>
+<td style="text-align:right;">3,414
+</td>
+<td style="text-align:right;">4,037,608
+</td>
+<td style="text-align:right;">1,183
+</td></tr>
+<tr>
+<td><a href="/wiki/Bagerhat_District" title="Bagerhat District">Bagerhat</a>
+</td>
+<td rowspan="10"><a href="/wiki/Khulna_Division" title="Khulna Division">Khulna</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">3,959
+</td>
+<td style="text-align:right;">1,613,079
+</td>
+<td style="text-align:right;">407
+</td></tr>
+<tr>
+<td><a href="/wiki/Chuadanga_District" title="Chuadanga District">Chuadanga</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,174
+</td>
+<td style="text-align:right;">1,234,066
+</td>
+<td style="text-align:right;">1,051
+</td></tr>
+<tr>
+<td><a href="/wiki/Jessore_District" title="Jessore District">Jashore</a>
+</td>
+<td>1781
+</td>
+<td style="text-align:right;">2,607
+</td>
+<td style="text-align:right;">3,076,849
+</td>
+<td style="text-align:right;">1,181
+</td></tr>
+<tr>
+<td><a href="/wiki/Jhenaidah_District" title="Jhenaidah District">Jhenaidah</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,965
+</td>
+<td style="text-align:right;">1,771,304
+</td>
+<td style="text-align:right;">902
+</td></tr>
+<tr>
+<td><a href="/wiki/Khulna_District" title="Khulna District">Khulna</a>
+</td>
+<td>1882
+</td>
+<td style="text-align:right;">4,394
+</td>
+<td style="text-align:right;">2,613,385
+</td>
+<td style="text-align:right;">595
+</td></tr>
+<tr>
+<td><a href="/wiki/Kushtia_District" title="Kushtia District">Kushtia</a>
+</td>
+<td>1947
+</td>
+<td style="text-align:right;">1,609
+</td>
+<td style="text-align:right;">2,149,692
+</td>
+<td style="text-align:right;">1,336
+</td></tr>
+<tr>
+<td><a href="/wiki/Magura_District" title="Magura District">Magura</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,039
+</td>
+<td style="text-align:right;">1,033,115
+</td>
+<td style="text-align:right;">994
+</td></tr>
+<tr>
+<td><a href="/wiki/Meherpur_District" title="Meherpur District">Meherpur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">742
+</td>
+<td style="text-align:right;">705,356
+</td>
+<td style="text-align:right;">951
+</td></tr>
+<tr>
+<td><a href="/wiki/Narail_District" title="Narail District">Narail</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">968
+</td>
+<td style="text-align:right;">788,673
+</td>
+<td style="text-align:right;">815
+</td></tr>
+<tr>
+<td><a href="/wiki/Satkhira_District" title="Satkhira District">Satkhira</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">3,817
+</td>
+<td style="text-align:right;">2,196,581
+</td>
+<td style="text-align:right;">574
+</td></tr>
+<tr>
+<td><a href="/wiki/Jamalpur_District" title="Jamalpur District">Jamalpur</a>
+</td>
+<td rowspan="4"><a href="/wiki/Mymensingh_Division" title="Mymensingh Division">Mymensingh</a>
+</td>
+<td>1978
+</td>
+<td style="text-align:right;">2,115
+</td>
+<td style="text-align:right;">2,499,737
+</td>
+<td style="text-align:right;">1,182
+</td></tr>
+<tr>
+<td><a href="/wiki/Mymensingh_District" title="Mymensingh District">Mymensingh</a>
+</td>
+<td>1787
+</td>
+<td style="text-align:right;">4,395
+</td>
+<td style="text-align:right;">5,899,052
+</td>
+<td style="text-align:right;">1,342
+</td></tr>
+<tr>
+<td><a href="/wiki/Netrokona_District" title="Netrokona District">Netrokona</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,794
+</td>
+<td style="text-align:right;">2,324,856
+</td>
+<td style="text-align:right;">832
+</td></tr>
+<tr>
+<td><a href="/wiki/Sherpur_District" title="Sherpur District">Sherpur</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,365
+</td>
+<td style="text-align:right;">1,501,853
+</td>
+<td style="text-align:right;">1,101
+</td></tr>
+<tr>
+<td><a href="/wiki/Bogra_District" title="Bogra District">Bogura</a>
+</td>
+<td rowspan="8"><a href="/wiki/Rajshahi_Division" title="Rajshahi Division">Rajshahi</a>
+</td>
+<td>1821
+</td>
+<td style="text-align:right;">2,899
+</td>
+<td style="text-align:right;">3,734,300
+</td>
+<td style="text-align:right;">1,288
+</td></tr>
+<tr>
+<td><a href="/wiki/Joypurhat_District" title="Joypurhat District">Joypurhat</a>
+</td>
+<td>1983
+</td>
+<td style="text-align:right;">1,012
+</td>
+<td style="text-align:right;">956,430
+</td>
+<td style="text-align:right;">945
+</td></tr>
+<tr>
+<td><a href="/wiki/Naogaon_District" title="Naogaon District">Naogaon</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">3,436
+</td>
+<td style="text-align:right;">2,784,598
+</td>
+<td style="text-align:right;">811
+</td></tr>
+<tr>
+<td><a href="/wiki/Natore_District" title="Natore District">Natore</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,900
+</td>
+<td style="text-align:right;">1,859,921
+</td>
+<td style="text-align:right;">979
+</td></tr>
+<tr>
+<td><a href="/wiki/Chapai_Nawabganj_District" title="Chapai Nawabganj District">Chapai Nawabganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,703
+</td>
+<td style="text-align:right;">1,835,527
+</td>
+<td style="text-align:right;">1,078
+</td></tr>
+<tr>
+<td><a href="/wiki/Pabna_District" title="Pabna District">Pabna</a>
+</td>
+<td>1832
+</td>
+<td style="text-align:right;">2,376
+</td>
+<td style="text-align:right;">2,909,622
+</td>
+<td style="text-align:right;">1,225
+</td></tr>
+<tr>
+<td><a href="/wiki/Rajshahi_District" title="Rajshahi District">Rajshahi</a>
+</td>
+<td>1772
+</td>
+<td style="text-align:right;">2,425
+</td>
+<td style="text-align:right;">2,915,013
+</td>
+<td style="text-align:right;">1,202
+</td></tr>
+<tr>
+<td><a href="/wiki/Sirajganj_District" title="Sirajganj District">Sirajganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,402
+</td>
+<td style="text-align:right;">3,357,708
+</td>
+<td style="text-align:right;">1,398
+</td></tr>
+<tr>
+<td><a href="/wiki/Dinajpur_District,_Bangladesh" title="Dinajpur District, Bangladesh">Dinajpur</a>
+</td>
+<td rowspan="8"><a href="/wiki/Rangpur_Division" title="Rangpur Division">Rangpur</a>
+</td>
+<td>1786
+</td>
+<td style="text-align:right;">3,444
+</td>
+<td style="text-align:right;">3,315,238
+</td>
+<td style="text-align:right;">963
+</td></tr>
+<tr>
+<td><a href="/wiki/Gaibandha_District" title="Gaibandha District">Gaibandha</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,115
+</td>
+<td style="text-align:right;">2,562,232
+</td>
+<td style="text-align:right;">1,212
+</td></tr>
+<tr>
+<td><a href="/wiki/Kurigram_District" title="Kurigram District">Kurigram</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,245
+</td>
+<td style="text-align:right;">2,329,161
+</td>
+<td style="text-align:right;">1,037
+</td></tr>
+<tr>
+<td><a href="/wiki/Lalmonirhat_District" title="Lalmonirhat District">Lalmonirhat</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,247
+</td>
+<td style="text-align:right;">1,428,406
+</td>
+<td style="text-align:right;">1,145
+</td></tr>
+<tr>
+<td><a href="/wiki/Nilphamari_District" title="Nilphamari District">Nilphamari</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,547
+</td>
+<td style="text-align:right;">2,092,567
+</td>
+<td style="text-align:right;">1,353
+</td></tr>
+<tr>
+<td><a href="/wiki/Panchagarh_District" title="Panchagarh District">Panchagarh</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,405
+</td>
+<td style="text-align:right;">1,179,843
+</td>
+<td style="text-align:right;">840
+</td></tr>
+<tr>
+<td><a href="/wiki/Rangpur_District" title="Rangpur District">Rangpur</a>
+</td>
+<td>1772
+</td>
+<td style="text-align:right;">2,401
+</td>
+<td style="text-align:right;">3,169,615
+</td>
+<td style="text-align:right;">1,320
+</td></tr>
+<tr>
+<td><a href="/wiki/Thakurgaon_District" title="Thakurgaon District">Thakurgaon</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">1,781
+</td>
+<td style="text-align:right;">1,533,894
+</td>
+<td style="text-align:right;">861
+</td></tr>
+<tr>
+<td><a href="/wiki/Habiganj_District" title="Habiganj District">Habiganj</a>
+</td>
+<td rowspan="4"><a href="/wiki/Sylhet_Division" title="Sylhet Division">Sylhet</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,637
+</td>
+<td style="text-align:right;">2,358,886
+</td>
+<td style="text-align:right;">895
+</td></tr>
+<tr>
+<td><a href="/wiki/Moulvibazar_District" title="Moulvibazar District">Moulvibazar</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">2,799
+</td>
+<td style="text-align:right;">2,123,445
+</td>
+<td style="text-align:right;">759
+</td></tr>
+<tr>
+<td><a href="/wiki/Sunamganj_District" title="Sunamganj District">Sunamganj</a>
+</td>
+<td>1984
+</td>
+<td style="text-align:right;">3,747
+</td>
+<td style="text-align:right;">2,695,495
+</td>
+<td style="text-align:right;">719
+</td></tr>
+<tr>
+<td><a href="/wiki/Sylhet_District" title="Sylhet District">Sylhet</a>
+</td>
+<td>1782
+</td>
+<td style="text-align:right;">3,452
+</td>
+<td style="text-align:right;">3,857,037
+</td>
+<td style="text-align:right;">1,117
+</td></tr>
+</tbody><tfoot><tr>
+<th style="text-align:left" colspan="3">Total
+</th>
+<th style="text-align:right">147,556
+</th>
+<th style="text-align:right">164,924,071
+</th>
+<th style="text-align:right">82,892
+</th></tr></tfoot></table>

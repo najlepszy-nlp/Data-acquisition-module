@@ -36,6 +36,9 @@ def check_link_for_city(link,citiesDict):
         #check if word is in ciries dict
         if word.lower() in cities:
             return word
+        
+        if word.lower() in district_to_region.keys():
+            return district_to_region[word.lower()]
 
     #if above steeps fail return empty string
     return ""
@@ -44,6 +47,8 @@ def check_text_for_city(articleText:str):
     cityName = articleText.split(",")[0]
     if cityName.lower() in cities:
         return cityName
+    if cityName.lower() in district_to_region.keys():
+            return district_to_region[cityName.lower()]
     return ""
 
 
@@ -73,7 +78,7 @@ def process_link(link,citiesDict):
     else:
         place = check_link_for_city(link,citiesDict)
         if place == "":
-            place = check_text_for_city(articleText)            
+            place = check_text_for_city(articleText)         
         if place == "":
             print(link)
             place = "Sosnowiec"
@@ -91,6 +96,7 @@ def save_to_csv(data, filepath):
 
 if __name__ == '__main__':
     all_data = []
+    district_to_region = clp.get_data_from_wikipedia_table("wikipedia_table_districts.txt.txt")
     temp = clp.read_places_from_file_to_dict("./worldcities.csv")
     citiesDict = temp[0]
     cities = temp[1].tolist()
