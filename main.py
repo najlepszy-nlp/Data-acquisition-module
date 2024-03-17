@@ -68,9 +68,9 @@ def process_link(link,citiesDict):
     article_soup = BeautifulSoup(htmlText, "html.parser")
     text_div = article_soup.find('div', class_='text')
     if text_div:
-        for tag in text_div(['style', 'script']):
+        for tag in text_div(['style', 'script', 'a']):
             tag.decompose()
-        articleText = ' '.join(text_div.stripped_strings).replace(';','')
+        articleText = ' '.join(text_div.stripped_strings).replace(';','').replace('&nbsp', '')
     else:
         articleText = ""
     if [item.text for item in date_data if 'fa-map-marker' in str(item)]:
