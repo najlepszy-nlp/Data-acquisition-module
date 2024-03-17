@@ -5,11 +5,12 @@ from bs4 import BeautifulSoup
 from lxml import etree
 from io import StringIO
 import CitiesListProcessing as clp
+from datetime import datetime, timedelta
 
 
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
-NUMBER_OF_PAGES = 2
-
+NUMBER_OF_PAGES = 30
+date_list = []
 
 def get_json_data(url):
     response = requests.get(url)
@@ -59,8 +60,12 @@ def process_link(link,citiesDict):
     date_data = soup.find_all('ul', class_='post-meta hidden-xs')
     date_data = BeautifulSoup(str(date_data), "html.parser").find_all('li', class_='news-section-bar')
     dates = [item.text.replace("\n", "").replace("'", "") for item in date_data if 'qb-clock' in str(item)]
+    # if dates are not provided take the oldest one
+    if len(dates) == 0:
+        min_date = min(date_list)
+        dates [0] = min_date.strftime('%B %d, %Y')
 
-    #make dates into correct format Month day, year
+    # make dates into correct format Month day, year
     for i in range(len(dates)):
         date = dates[i]
         date = date.replace("Publish- ","").replace("Update- ","")
@@ -70,7 +75,18 @@ def process_link(link,citiesDict):
     # if no update date provided make it have a publish date instead
     if len(dates) == 1:
         dates.append(dates[0])
-    
+
+    #handle the oldest date mechanism
+
+    if len(dates) > 0:
+
+        # convert our date to datetime format
+        date = dates[0]
+        date_datatime = datetime.strptime(date, '%B %d, %Y')
+
+        # append to our list
+        date_list.append(date_datatime)
+
     htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';','')
     parser = etree.HTMLParser()
     tree = etree.parse(StringIO(htmlText), parser)
@@ -121,4 +137,13 @@ if __name__ == '__main__':
                 continue
             link_data = process_link(link,citiesDict)
             all_data.append(link_data)
+
+        # get oldest date, subtract one day append it to the list
+        # this is done for articles without date
+        # so we can substitute the publish date for them
+        min_date = min(date_list)
+        one_day = timedelta(days=1)
+        new_oldest_date = min_date - one_day
+        date_list.append(new_oldest_date)
+
     save_to_csv(all_data, './abc.txt')
