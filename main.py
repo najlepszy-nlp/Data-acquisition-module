@@ -8,7 +8,7 @@ import CitiesListProcessing as clp
 
 
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
-NUMBER_OF_PAGES = 118
+NUMBER_OF_PAGES = 2
 
 
 def get_json_data(url):
@@ -59,6 +59,18 @@ def process_link(link,citiesDict):
     date_data = soup.find_all('ul', class_='post-meta hidden-xs')
     date_data = BeautifulSoup(str(date_data), "html.parser").find_all('li', class_='news-section-bar')
     dates = [item.text.replace("\n", "").replace("'", "") for item in date_data if 'qb-clock' in str(item)]
+
+    #make dates into correct format Month day, year
+    for i in range(len(dates)):
+        date = dates[i]
+        date = date.replace("Publish- ","").replace("Update- ","")
+        date_table = date.split(",")
+        dates[i] = f"{date_table[0]},{date_table[1]}"
+
+    # if no update date provided make it have a publish date instead
+    if len(dates) == 1:
+        dates.append(dates[0])
+    
     htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';','')
     parser = etree.HTMLParser()
     tree = etree.parse(StringIO(htmlText), parser)
@@ -70,7 +82,7 @@ def process_link(link,citiesDict):
     if text_div:
         for tag in text_div(['style', 'script', 'a']):
             tag.decompose()
-        articleText = ' '.join(text_div.stripped_strings).replace(';','').replace('&nbsp', '')
+        articleText = ' '.join(text_div.stripped_strings).replace(';','').replace('&nbsp', '').replace('\\','')
     else:
         articleText = ""
     if [item.text for item in date_data if 'fa-map-marker' in str(item)]:
