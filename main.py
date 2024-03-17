@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
-NUMBER_OF_PAGES = 30
+NUMBER_OF_PAGES = 118
 date_list = []
 
 def get_json_data(url):
