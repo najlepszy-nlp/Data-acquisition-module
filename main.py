@@ -129,12 +129,16 @@ if __name__ == '__main__':
     citiesDict = temp[0]
     cities = temp[1].tolist()
     cities = list(map(lambda city: city.lower(), cities))
+    links_used = []
     for index in range(1, NUMBER_OF_PAGES + 1):
         json_data = get_json_data(f"{SITE_URL}{index}")
         urls = extract_urls(json_data)
         for link in urls:
             if not "Bangladesh" in link:
                 continue
+            if link in links_used: 
+                continue
+            links_used.append(link)
             link_data = process_link(link,citiesDict)
             all_data.append(link_data)
 
