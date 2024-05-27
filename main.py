@@ -6,6 +6,7 @@ from lxml import etree
 from io import StringIO
 import CitiesListProcessing as clp
 from datetime import datetime, timedelta
+import cars_words as cars
 
 
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
@@ -110,8 +111,17 @@ def process_link(link,citiesDict):
         if place == "":
             print(link)
             place = "Sosnowiec"
+    if check_text_for_car(articleText):
+        return (dates[0], dates[1] if len(dates) > 1 else "", place, htmlText, articleText)
+    else:
+        return False
 
-    return (dates[0], dates[1] if len(dates) > 1 else "", place, htmlText, articleText)
+def check_text_for_car(articleText):
+    tab = articleText.split()
+    for word in tab:
+        if word.lower() in cars.CAR_RELATED_WORDS:
+            return True
+    return False
 
 
 def save_to_csv(data, filepath):
@@ -140,7 +150,9 @@ if __name__ == '__main__':
                 continue
             links_used.append(link)
             link_data = process_link(link,citiesDict)
-            all_data.append(link_data)
+            print(link)
+            if link_data != False:
+                all_data.append(link_data)
 
         # get oldest date, subtract one day append it to the list
         # this is done for articles without date
