@@ -8,10 +8,10 @@ import CitiesListProcessing as clp
 from datetime import datetime, timedelta
 import cars_words as cars
 
-
 SITE_URL = "https://www.unb.com.bd/api/tag-news?tag_id=54&item="
 NUMBER_OF_PAGES = 118
 date_list = []
+
 
 def get_json_data(url):
     response = requests.get(url)
@@ -24,37 +24,39 @@ def extract_urls(json_data):
     urls = set(link.get('href').replace("\\", "") for link in links if link.get('href'))
     return urls
 
-def check_link_for_city(link,citiesDict):
-    noPrefixLink = link.replace("https://www.unb.com.bd/category/Bangladesh/","")
+
+def check_link_for_city(link, citiesDict):
+    noPrefixLink = link.replace("https://www.unb.com.bd/category/Bangladesh/", "")
     index = noPrefixLink.find("/")
     readyToParseLink = noPrefixLink[:index]
     wordsList = readyToParseLink.split("-")
     for word in wordsList:
 
-        #check if word is in districts to cities dict
+        # check if word is in districts to cities dict
         if word.lower() in citiesDict.keys():
             return citiesDict[word].lower()
 
-        #check if word is in ciries dict
+        # check if word is in ciries dict
         if word.lower() in cities:
             return word
-        
+
         if word.lower() in district_to_region.keys():
             return district_to_region[word.lower()]
 
-    #if above steeps fail return empty string
+    # if above steeps fail return empty string
     return ""
 
-def check_text_for_city(articleText:str):
+
+def check_text_for_city(articleText: str):
     cityName = articleText.split(",")[0]
     if cityName.lower() in cities:
         return cityName
     if cityName.lower() in district_to_region.keys():
-            return district_to_region[cityName.lower()]
+        return district_to_region[cityName.lower()]
     return ""
 
 
-def process_link(link,citiesDict):
+def process_link(link, citiesDict):
     response = requests.get(link)
     soup = BeautifulSoup(response.content, "html.parser")
 
@@ -64,12 +66,12 @@ def process_link(link,citiesDict):
     # if dates are not provided take the oldest one
     if len(dates) == 0:
         min_date = min(date_list)
-        dates [0] = min_date.strftime('%B %d, %Y')
+        dates[0] = min_date.strftime('%B %d, %Y')
 
     # make dates into correct format Month day, year
     for i in range(len(dates)):
         date = dates[i]
-        date = date.replace("Publish- ","").replace("Update- ","")
+        date = date.replace("Publish- ", "").replace("Update- ", "")
         date_table = date.split(",")
         dates[i] = f"{date_table[0]},{date_table[1]}"
 
@@ -77,10 +79,9 @@ def process_link(link,citiesDict):
     if len(dates) == 1:
         dates.append(dates[0])
 
-    #handle the oldest date mechanism
+    # handle the oldest date mechanism
 
     if len(dates) > 0:
-
         # convert our date to datetime format
         date = dates[0]
         date_datatime = datetime.strptime(date, '%B %d, %Y')
@@ -88,7 +89,7 @@ def process_link(link,citiesDict):
         # append to our list
         date_list.append(date_datatime)
 
-    htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';','')
+    htmlText = response.content.decode('utf-8').replace('\n', ' ').replace(';', '')
     parser = etree.HTMLParser()
     tree = etree.parse(StringIO(htmlText), parser)
     for s in tree.xpath('//script'):
@@ -99,22 +100,23 @@ def process_link(link,citiesDict):
     if text_div:
         for tag in text_div(['style', 'script', 'a']):
             tag.decompose()
-        articleText = ' '.join(text_div.stripped_strings).replace(';','').replace('&nbsp', '').replace('\\','')
+        articleText = ' '.join(text_div.stripped_strings).replace(';', '').replace('&nbsp', '').replace('\\', '')
     else:
         articleText = ""
     if [item.text for item in date_data if 'fa-map-marker' in str(item)]:
         place = [item.text for item in date_data if 'fa-map-marker' in str(item)][0] if date_data else ""
     else:
-        place = check_link_for_city(link,citiesDict)
+        place = check_link_for_city(link, citiesDict)
         if place == "":
-            place = check_text_for_city(articleText)         
+            place = check_text_for_city(articleText)
         if place == "":
             print(link)
             place = "Sosnowiec"
     if check_text_for_car(articleText):
-        return (dates[0], dates[1] if len(dates) > 1 else "", place, htmlText, articleText)
+        return (dates[0], dates[1] if len(dates) > 1 else "", place, htmlText, articleText, link)
     else:
         return False
+
 
 def check_text_for_car(articleText):
     tab = articleText.split()
@@ -127,7 +129,7 @@ def check_text_for_car(articleText):
 def save_to_csv(data, filepath):
     with open(filepath, 'w', newline='', encoding='utf-8') as out:
         csv_out = csv.writer(out, delimiter=';')
-        csv_out.writerow(('Publish', 'Update', 'Place', 'HTML_TEXT', 'RAW_TEXT'))
+        csv_out.writerow(('Publish', 'Update', 'Place', 'HTML_TEXT', 'RAW_TEXT', 'Url'))
         for row in data:
             csv_out.writerow(row)
 
@@ -146,10 +148,10 @@ if __name__ == '__main__':
         for link in urls:
             if not "Bangladesh" in link:
                 continue
-            if link in links_used: 
+            if link in links_used:
                 continue
             links_used.append(link)
-            link_data = process_link(link,citiesDict)
+            link_data = process_link(link, citiesDict)
             print(link)
             if link_data != False:
                 all_data.append(link_data)
